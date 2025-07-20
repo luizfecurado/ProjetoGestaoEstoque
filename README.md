@@ -160,26 +160,6 @@ python main.py
 python test_api.py
 ```
 
-## 🔒 Configuração de Segurança
-
-### Variáveis de Ambiente Importantes
-
-Edite o arquivo `.env`:
-
-```env
-# Configurações do PostgreSQL
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=sua_senha_segura
-POSTGRES_DB=gestao_estoque
-
-# Configurações da aplicação
-DEBUG=False
-SECRET_KEY=sua_chave_secreta_muito_segura
-
-# URL do banco
-DATABASE_URL=postgresql://postgres:sua_senha_segura@postgres:5432/gestao_estoque
-```
-
 ### Recomendações de Segurança
 
 1. **Altere as senhas padrão** no arquivo `.env`
