@@ -1,0 +1,81 @@
+# Arquivos do Git
+.git
+.gitignore
+
+# Arquivos de desenvolvimento
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+pip-log.txt
+pip-delete-this-directory.txt
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git
+.mypy_cache
+.pytest_cache
+.hypothesis
+
+# Arquivos de IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Arquivos do sistema
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Arquivos de banco SQLite (não necessários no container)
+*.db
+*.sqlite
+*.sqlite3
+
+# Arquivos de backup
+*.bak
+*.backup
+*.old
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Logs
+logs/
+*.log
+
+# Arquivos de configuração local
+.env.local
+.env.development
+.env.test
+
+# Documentação
+README.md
+*.md
+docs/
+
+# Scripts de desenvolvimento
+deploy.sh
+migrate_sqlite_to_postgres.py
+
+# Arquivos de teste
+test_*.py
+*_test.py
+tests/
+
+# Arquivos de exemplo
+env.example 

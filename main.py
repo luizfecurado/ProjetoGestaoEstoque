@@ -5,16 +5,17 @@ from typing import List
 import models
 import schemas
 import crud
-from database import engine, get_db
+from database import engine, get_db, create_tables, test_database_connection
+from config import settings
 
 # Criar tabelas no banco de dados
-models.Base.metadata.create_all(bind=engine)
+create_tables()
 
 # Configuração da aplicação FastAPI
 app = FastAPI(
-    title="API de Gestão de Estoque",
+    title=settings.APP_NAME,
     description="API CRUD completa para gestão de produtos, estoque e pedidos",
-    version="1.0.0",
+    version=settings.APP_VERSION,
     docs_url="/docs",
     redoc_url="/redoc"
 )
@@ -182,9 +183,13 @@ def status_api():
     Endpoint de verificação de status da API.
     Retorna uma mensagem confirmando que a API está funcionando.
     """
+    db_status = "online" if test_database_connection() else "offline"
+    
     return {
-        "message": "API de Gestão de Estoque funcionando!",
+        "message": f"{settings.APP_NAME} funcionando!",
         "status": "online",
+        "database": db_status,
+        "version": settings.APP_VERSION,
         "docs": "/docs",
         "redoc": "/redoc"
     }
@@ -204,4 +209,9 @@ async def internal_error_handler(request, exc):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000) 
+    uvicorn.run(
+        app, 
+        host=settings.HOST, 
+        port=settings.PORT,
+        reload=settings.DEBUG
+    ) 
